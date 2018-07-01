@@ -1,0 +1,25 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{overflow: hidden; position: relative;}
+#sketchpad{background: #fafafa;}
+.choice{position: absolute; bottom: 0; width: 100%; height: 160px; border: 1px solid red; 
+  display: flex; flex-direction: row;}
+.choice .blackPen,
+.choice .bluePen,
+.choice .redPen,
+.choice .greenPen{width: 8%; height: 100%; position: relative; 
+  border-top-left-radius: 10px; border-top-right-radius: 10px;}
+.choice .blackPen .up,
+.choice .bluePen .up,
+.choice .redPen .up,
+.choice .greenPen .up{width: 100%; height: 85%; position: absolute; top: 0; background: black; 
+  border-top-left-radius: 10px; border-top-right-radius: 10px;}
+.choice .blackPen .down,
+.choice .bluePen .down,
+.choice .redPen .down,
+.choice .greenPen .down{width: 100%; height: 10%; position: absolute; bottom: 0; background: black;}
+.choice .blackPen .up,.choice .blackPen .down{background: black;}
+.choice .bluePen .up,.choice .bluePen .down{background: blue;}
+.choice .redPen .up,.choice .redPen .down{background: red;}
+.choice .greenPen .up,.choice .greenPen .down{background: green;}
+
+#change{position: absolute;top: 0; left: 0;}
