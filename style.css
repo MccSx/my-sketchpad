@@ -1,14 +1,16 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 body{overflow: hidden; position: relative;}
-#sketchpad{background: #fafafa;}
+@media (max-width:499px) {
+  .choice{position: absolute; width: 100%; left: 0; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+}
+@media (min-width:800px) {
+  .choice{position: absolute; width: 50%; left: 25%; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+}
+@media (min-width:500px) and (max-width:799px) {
+  .choice{position: absolute; width: 70%; left: 15%; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+}
 
-.choice{position: absolute; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
-@media (max-width:500px) {
-  .choice{width: 100%; left: 0;}
-}
-@media (min-width:500px) {
-  .choice{width: 50%; left: 25%;}
-}
+#sketchpad{background: #fafafa;}
 .choice .blackPen,
 .choice .bluePen,
 .choice .redPen,
