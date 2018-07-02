@@ -15,22 +15,63 @@ body{overflow: hidden;}
 @media (min-width:1500px) {
   .choice{width: 30%; left: 35%;}
 }
-
 #sketchpad{background: #fafafa; position: fixed;}
-.choice{position: absolute; bottom: 0; height: 6%; display: flex; flex-direction: row; border: 1px solid red; z-index: 1;}
+.choice{position: absolute; bottom: 0; height: 6%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
+
 .choice .blackPen,
 .choice .bluePen,
 .choice .redPen,
-.choice .greenPen{width: 8%; height: 100%; position: relative; border-top-left-radius: 10px; border-top-right-radius: 10px;}
+.choice .greenPen{width: 7%; height: 100%; position: relative; border-top-left-radius: 15%; border-top-right-radius: 15%;}
 .choice .blackPen .up,
 .choice .bluePen .up,
 .choice .redPen .up,
-.choice .greenPen .up{width: 100%; height: 85%; position: absolute; top: 0; background: black; border-top-left-radius: 10px; border-top-right-radius: 10px;}
+.choice .greenPen .up{width: 100%; height: 90%; position: absolute; top: 0; background: black; border-top-left-radius: 15%; 
+  border-top-right-radius: 15%;}
 .choice .blackPen .down,
 .choice .bluePen .down,
 .choice .redPen .down,
-.choice .greenPen .down{width: 100%; height: 10%; position: absolute; bottom: 0; background: black;}
+.choice .greenPen .down{width: 100%; height: 6%; position: absolute; bottom: 0; background: black;}
 .choice .blackPen .up,.choice .blackPen .down{background: black;}
 .choice .bluePen .up,.choice .bluePen .down{background: blue;}
 .choice .redPen .up,.choice .redPen .down{background: red;}
 .choice .greenPen .up,.choice .greenPen .down{background: green;}
+.choice .eraser{width: 7%; height: 100%; position: relative;}
+.choice .eraser .up{width: 100%; height: 30%; background: #44494D;}
+.choice .eraser .down{width: 100%; height: 66%; background: #44494D; position: absolute; bottom: 0;}
+.choice>div{margin-left: 1%;}
+.choice>div:first-child{margin-left: 0;}
+
+.choice .blackPen.active .up,
+.choice .bluePen.active .up,
+.choice .redPen.active .up,
+.choice .greenPen.active .up{width: 100%; height: 30%; background: #fafafa; position: relative;}
+.choice .blackPen.active .up::before,
+.choice .bluePen.active .up::before,
+.choice .redPen.active .up::before,
+.choice .greenPen.active .up::before{content: ''; position: absolute; right: 50%; width: 15%; height: 100%; border-top-left-radius: 100%;}
+.choice .blackPen.active .up::before,.choice .blackPen.active .up::after{background: black;}
+.choice .bluePen.active .up::before,.choice .bluePen.active .up::after{background: blue;}
+.choice .redPen.active .up::before,.choice .redPen.active .up::after{background: red;}
+.choice .greenPen.active .up::before,.choice .greenPen.active .up::after{background: green;}
+.choice .blackPen.active .up::after,
+.choice .bluePen.active .up::after,
+.choice .redPen.active .up::after,
+.choice .greenPen.active .up::after{content: ''; position: absolute; left: 50%; width: 15%; height: 100%; border-top-right-radius: 100%;}
+.choice .blackPen.active .down,
+.choice .bluePen.active .down,
+.choice .redPen.active .down,
+.choice .greenPen.active .down{width: 100%; height: 66%;}
+.choice .blackPen.active .down{background: black;}
+.choice .bluePen.active .down{background: blue;}
+.choice .redPen.active .down{background: red;}
+.choice .greenPen.active .down{background: green;}
+.choice .blackPen.active .down::before,
+.choice .bluePen.active .down::before,
+.choice .redPen.active .down::before,
+.choice .greenPen.active .down::before{content: ''; background: #fafafa; width: 24%; height: 100%; position: absolute; 
+  border-bottom-right-radius: 90%;}
+.choice .blackPen.active .down::after,
+.choice .bluePen.active .down::after,
+.choice .redPen.active .down::after,
+.choice .greenPen.active .down::after{content: ''; background: #fafafa; width: 24%; height: 100%; position: absolute; 
+  border-bottom-left-radius: 90%; right: 0;}
