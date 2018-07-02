@@ -1,4 +1,4 @@
-let sketchpad = document.querySelector('#sketchpad')
+let sketchpad = document.getElementById('sketchpad')
 let ctx = sketchpad.getContext('2d')
 let lineWidth = 6
 let lineColor = 'red'
@@ -8,8 +8,10 @@ let eraserSize = 12
 
 function autoSetSize(canvas) {
   function resize() {
-    canvas.width = document.documentElement.clientWidth
-    canvas.height = document.documentElement.clientHeight
+    var pageWidth = document.documentElement.clientWidth
+    var pageHeight = document.documentElement.clientHeight
+    canvas.width = pageWidth
+    canvas.height = pageHeight
   }
   resize()
   
@@ -99,7 +101,3 @@ function drawing(canvas) {
   }
 }
 drawing(sketchpad)
-
-change.onclick=function () {
-  isEraser = true
-}

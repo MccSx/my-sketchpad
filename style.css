@@ -1,16 +1,23 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
-body{overflow: hidden; position: relative;}
-@media (max-width:499px) {
-  .choice{position: absolute; width: 100%; left: 0; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+*{margin: 0; padding: 0;}
+body{overflow: hidden;}
+@media (max-width:500px) {
+  .choice{width: 100%; left: 0;}
 }
-@media (min-width:800px) {
-  .choice{position: absolute; width: 50%; left: 25%; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+@media (min-width:500px) and (max-width:800px) {
+  .choice{width: 70%; left: 15%;}
 }
-@media (min-width:500px) and (max-width:799px) {
-  .choice{position: absolute; width: 70%; left: 15%; bottom: 0; height: 6%; border: 1px solid red; display: flex; flex-direction: row;}
+@media (min-width:800px) and (max-width:1200px) {
+  .choice{width: 50%; left: 25%;}
+}
+@media (min-width:1200px) and (max-width:1500px) {
+  .choice{width: 40%; left: 30%;}
+}
+@media (min-width:1500px) {
+  .choice{width: 30%; left: 35%;}
 }
 
-#sketchpad{background: #fafafa;}
+#sketchpad{background: #fafafa; position: fixed;}
+.choice{position: absolute; bottom: 0; height: 6%; display: flex; flex-direction: row; border: 1px solid red; z-index: 1;}
 .choice .blackPen,
 .choice .bluePen,
 .choice .redPen,
@@ -27,5 +34,3 @@ body{overflow: hidden; position: relative;}
 .choice .bluePen .up,.choice .bluePen .down{background: blue;}
 .choice .redPen .up,.choice .redPen .down{background: red;}
 .choice .greenPen .up,.choice .greenPen .down{background: green;}
-
-#change{position: absolute;top: 0; left: 0;}
