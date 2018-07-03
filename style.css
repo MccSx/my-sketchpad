@@ -1,22 +1,39 @@
 *{margin: 0; padding: 0;}
 body{overflow: hidden;}
+.icon {width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden;}
+
 @media (max-width:500px) {
   .choice{width: 100%; left: 0;}
+  .bg{width: 100%; left: 0;}
 }
 @media (min-width:500px) and (max-width:800px) {
   .choice{width: 70%; left: 15%;}
+  .bg{width: 70%; left: 15%;}
 }
 @media (min-width:800px) and (max-width:1200px) {
   .choice{width: 50%; left: 25%;}
+  .bg{width: 50%; left: 25%;}
 }
 @media (min-width:1200px) and (max-width:1500px) {
   .choice{width: 40%; left: 30%;}
+  .bg{width: 40%; left: 30%;}
 }
 @media (min-width:1500px) {
   .choice{width: 30%; left: 35%;}
+  .bg{width: 30%; left: 35%;}
 }
 #sketchpad{background: #fafafa; position: fixed;}
-.choice{position: absolute; bottom: 0; height: 6%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
+#sketchpad.yellow{background: #FFFFE7;}
+#sketchpad.dark{background: #F2F2EF;}
+#sketchpad.paper1{background-image: linear-gradient(#EEEEEE .05em, transparent .1em); background-size: 100% 1.5em;}
+#sketchpad.paper2{background-color: #ffffe7;
+  background-image: linear-gradient(90deg, transparent 49px, #fcc 49px, #fcc 51px, transparent 51px),
+  linear-gradient(90deg, transparent 69px, #fcc 69px, #fcc 71px, transparent 71px),
+  linear-gradient(rgba(153,204,255,.3) .1em, transparent .1em);
+  background-size: 100% 1.5em;}
+#sketchpad.lattice{background-image: linear-gradient(#EEEEEE .05em, transparent .1em),
+  linear-gradient(90deg, #EEEEEE .05em, transparent .1em); background-size: 100% 1em, 1em 100%;}
+.choice{position: fixed; bottom: 0; height: 6%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
 
 .choice .blackPen,
 .choice .bluePen,
@@ -36,8 +53,8 @@ body{overflow: hidden;}
 .choice .redPen .up,.choice .redPen .down{background: red;}
 .choice .greenPen .up,.choice .greenPen .down{background: green;}
 .choice .eraser{width: 7%; height: 100%; position: relative;}
-.choice .eraser .up{width: 100%; height: 30%; background: #44494D;}
-.choice .eraser .down{width: 100%; height: 66%; background: #44494D; position: absolute; bottom: 0;}
+.choice .eraser .up{width: 100%; height: 34%; background: #44494D;}
+.choice .eraser .down{width: 100%; height: 62%; background: #44494D; position: absolute; bottom: 0;}
 .choice>div{margin-left: 1%;}
 .choice>div:first-child{margin-left: 0;}
 
@@ -75,3 +92,32 @@ body{overflow: hidden;}
 .choice .redPen.active .down::after,
 .choice .greenPen.active .down::after{content: ''; background: #fafafa; width: 24%; height: 100%; position: absolute; 
   border-bottom-left-radius: 90%; right: 0;}
+.choice .eraser.active .up{width: 80%; height: 24%; margin-top: 15%; margin-left: auto; margin-right: auto; border-top-left-radius: 20%; 
+  border-top-right-radius: 20%; position: relative;}
+.choice .eraser.active .up::after{content: ''; width: 100%; height: 100%; position: absolute; background: #fafafa; opacity: 0.5;}
+
+.choice .changeSize{width: 20%; display: flex; justify-content: space-between; align-items: center; margin: 0 5%;}
+.choice .changeSize>span{display: inline-block; border-radius: 50%; border: 1px solid #44494D; box-sizing: border-box;}
+.choice .changeSize .small{width: 1.6vh; height: 1.6vh; }
+.choice .changeSize .normal{width: 2vh; height: 2vh;}
+.choice .changeSize .large{width: 2.4vh; height: 2.4vh;}
+.choice .changeSize>span.active{background:#44494D; position: relative; display: flex; justify-content: center; align-items: center;}
+.choice .changeSize>span.active::after{content: ''; position: absolute; background: #fafafa; width: 35%; height: 35%; border-radius: 50%;}
+
+.choice .changeBg,.choice .download,.choice .removeAll{width: 10%; height: 100%; display: flex; justify-content: center;align-items: center;}
+.choice .changeBg .icon,.choice .download .icon,.choice .removeAll .icon{font-size: 22px;}
+
+.bg{height: 30vh; background: #ccc; opacity: 0.5; position: absolute; bottom: 0; z-index: 100; transform: translateY(100%); display: none;}
+.bg.active{transform: translateY(0); display: block;}
+.bg .row1,.bg .row2{display: flex; margin-top: 5%; justify-content: space-between;}
+.bg .row1>div,.bg .row2>div{width: 8vh; height: 8vh; background: white; border-radius: 50%; margin: 0 8%; display: flex; justify-content: center; 
+  align-items: center;}
+.bg .row1>div .content,.bg .row2>div .content{width: 40%; height: 30%; position: relative; border: 2px solid #1AACFF;}
+.bg .row1>div .content::after,.bg .row2>div .content::after{content: ''; display: block; position: absolute; width: 100%; height: 100%; left: 8%; top: 14%; 
+  border: 2px solid #1AACFF;}
+.bg .defaultBg .content::after{background: #fafafa;}
+.bg .yellowBg .content::after{background: #FFFFE7;}
+.bg .darkBg .content::after{background: #F2F2EF;}
+.bg .paper1 .content::after{background: url(./img/paper1.png); background-size: 100% 100%;}
+.bg .paper2 .content::after{background: url(./img/paper2.png); background-size: 100% 100%;}
+.bg .lattice .content::after{background: url(./img/lattice.png); background-size: 100% 100%;}

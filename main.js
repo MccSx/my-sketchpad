@@ -1,10 +1,10 @@
 let sketchpad = document.getElementById('sketchpad')
 let ctx = sketchpad.getContext('2d')
-let lineWidth = 6
+let lineWidth = 3
 let lineColor = 'red'
 let isEraser = false
 let eraserColor = '#fafafa'
-let eraserSize = 12
+let eraserSize = 6
 
 function autoSetSize(canvas) {
   function resize() {
