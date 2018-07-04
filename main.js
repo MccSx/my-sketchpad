@@ -219,6 +219,10 @@ darkBg.onclick = function () {
   sketchpad.className = ''
   sketchpad.className = 'dark'
   bg.classList.remove('active')
+  let allPens = document.querySelectorAll('.pen-wrapper>div')
+  for (let i=0; i<allPens.length; i++) {
+    allPens[i].classList.add('dark')
+  }
 }
 paper1.onclick = function () {
   sketchpad.className = ''

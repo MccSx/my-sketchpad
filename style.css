@@ -25,7 +25,7 @@ body{overflow: hidden;}
 #sketchpad{background: #fafafa; position: fixed;}
 #sketchpad.defaultBg{background: #fafafa;}
 #sketchpad.yellow{background: #FFFFE7;}
-#sketchpad.dark{background: #F2F2EF;}
+#sketchpad.dark{background: #AAAAAA;}
 #sketchpad.paper1{background-image: linear-gradient(#EEEEEE .05em, transparent .1em); background-size: 100% 1.5em;}
 #sketchpad.paper2{background-color: #ffffe7;
   background-image: linear-gradient(90deg, transparent 49px, #fcc 49px, #fcc 51px, transparent 51px),
@@ -34,7 +34,7 @@ body{overflow: hidden;}
   background-size: 100% 1.5em;}
 #sketchpad.lattice{background-image: linear-gradient(#EEEEEE .05em, transparent .1em),
   linear-gradient(90deg, #EEEEEE .05em, transparent .1em); background-size: 100% 1em, 1em 100%;}
-.choice{position: fixed; bottom: 0; height: 7%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
+.choice{position: fixed; bottom: 0; height: 7%; display: flex; flex-direction: row; cursor: pointer; z-index: 1; background: transparent;}
 
 .choice .pen-wrapper{width: 45%; display: flex; flex-direction: row; justify-content: space-between;}
 .choice .blackPen,
@@ -61,7 +61,7 @@ body{overflow: hidden;}
 .choice .blackPen.active .up,
 .choice .bluePen.active .up,
 .choice .redPen.active .up,
-.choice .greenPen.active .up{width: 100%; height: 30%; background: #fafafa; position: relative;}
+.choice .greenPen.active .up{width: 100%; height: 30%; background: transparent; position: relative;}
 .choice .blackPen.active .up::before,
 .choice .bluePen.active .up::before,
 .choice .redPen.active .up::before,
@@ -85,12 +85,12 @@ body{overflow: hidden;}
 .choice .blackPen.active .down::before,
 .choice .bluePen.active .down::before,
 .choice .redPen.active .down::before,
-.choice .greenPen.active .down::before{content: ''; background: #fafafa; width: 24%; height: 100%; position: absolute; 
+.choice .greenPen.active .down::before{content: ''; background: white; width: 24%; height: 100%; position: absolute; 
   border-bottom-right-radius: 90%;}
 .choice .blackPen.active .down::after,
 .choice .bluePen.active .down::after,
 .choice .redPen.active .down::after,
-.choice .greenPen.active .down::after{content: ''; background: #fafafa; width: 24%; height: 100%; position: absolute; 
+.choice .greenPen.active .down::after{content: ''; background: white; width: 24%; height: 100%; position: absolute; 
   border-bottom-left-radius: 90%; right: 0;}
 .choice .eraser.active .up{width: 80%; height: 24%; margin-top: 15%; margin-left: auto; margin-right: auto; border-top-left-radius: 20%; 
   border-top-right-radius: 20%; position: relative;}
@@ -127,9 +127,18 @@ body{overflow: hidden;}
   border: 2px solid #1AACFF;}
 .bg .defaultBg .content::after{background: #fafafa;}
 .bg .yellowBg .content::after{background: #FFFFE7;}
-.bg .darkBg .content::after{background: #F2F2EF;}
+.bg .darkBg .content::after{background: #AAAAAA;}
 .bg .paper1 .content::after{background: url(./img/paper1.png); background-size: 100% 100%;}
 .bg .paper2 .content::after{background: url(./img/paper2.png); background-size: 100% 100%;}
 .bg .lattice .content::after{background: url(./img/lattice.png); background-size: 100% 100%;}
 .bg button{position: absolute; right: 2%; top: 5%; width: 1em; height: 1em; line-height: 1em; border: none; background: white; border-radius: 50%; 
   color: #1AACFF;}
+
+.choice .blackPen.active.dark .down::before,
+.choice .bluePen.active.dark .down::before,
+.choice .redPen.active.dark .down::before,
+.choice .greenPen.active.dark .down::before{background: #AAAAAA;}
+.choice .blackPen.active.dark .down::after,
+.choice .bluePen.active.dark .down::after,
+.choice .redPen.active.dark .down::after,
+.choice .greenPen.active.dark .down::after{background: #AAAAAA;}
