@@ -1,11 +1,12 @@
 let sketchpad = document.getElementById('sketchpad')
 let ctx = sketchpad.getContext('2d')
-let lineWidth = 3
-let lineColor = 'red'
+let lineWidth = 2
+let lineColor = 'black'
 let isEraser = false
 let eraserColor = '#fafafa'
 let eraserSize = 6
 
+//功能函数
 function autoSetSize(canvas) {
   function resize() {
     var pageWidth = document.documentElement.clientWidth
@@ -19,7 +20,6 @@ function autoSetSize(canvas) {
     resize()
   }
 }
-autoSetSize(sketchpad)
 
 function drawLine(x1, y1, x2, y2, color, size) {
   ctx.beginPath()
@@ -100,4 +100,48 @@ function drawing(canvas) {
     }
   }
 }
+
+function changeClassName(el, className) {
+  let childs = el.parentNode.children
+  for (let i=0; i<childs.length; i++) {
+    if (childs[i] === el) {
+      childs[i].classList.add(className)
+    } else {
+      childs[i].classList.remove(className)
+    }
+  }
+}
+
+
+autoSetSize(sketchpad)
 drawing(sketchpad)
+
+let blackPen = document.querySelector('.blackPen')
+let bluePen = document.querySelector('.bluePen')
+let redPen = document.querySelector('.redPen')
+let greenPen = document.querySelector('.greenPen')
+let eraser = document.querySelector('.eraser')
+blackPen.onclick = function (e) {
+  changeClassName(blackPen, 'active')
+  lineColor = 'black'
+  isEraser = false
+}
+bluePen.onclick = function (e) {
+  changeClassName(bluePen, 'active')
+  lineColor = 'blue'
+  isEraser = false
+}
+redPen.onclick = function (e) {
+  changeClassName(redPen, 'active')
+  lineColor = 'red'
+  isEraser = false
+}
+greenPen.onclick = function (e) {
+  changeClassName(greenPen, 'active')
+  lineColor = 'green'
+  isEraser = false
+}
+eraser.onclick = function (e) {
+  changeClassName(eraser, 'active')
+  isEraser = true
+}

@@ -9,30 +9,39 @@
 <body>
   <canvas id="sketchpad" class=""></canvas>
   <div class="choice">
-    <div class="blackPen">
-      <div class="up"></div>
-      <div class="down"></div>
-    </div>
-    <div class="bluePen active">
-      <div class="up"></div>
-      <div class="down"></div>
-    </div>
-    <div class="redPen">
-      <div class="up"></div>
-      <div class="down"></div>
-    </div>
-    <div class="greenPen">
-      <div class="up"></div>
-      <div class="down"></div>
-    </div>
-    <div class="eraser active">
-      <div class="up"></div>
-      <div class="down"></div>
+    <div class="pen-wrapper">
+      <div class="blackPen active">
+        <div class="up"></div>
+        <div class="down"></div>
+      </div>
+      <div class="bluePen">
+        <div class="up"></div>
+        <div class="down"></div>
+      </div>
+      <div class="redPen">
+        <div class="up"></div>
+        <div class="down"></div>
+      </div>
+      <div class="greenPen">
+        <div class="up"></div>
+        <div class="down"></div>
+      </div>
+      <div class="eraser">
+        <div class="up"></div>
+        <div class="down"></div>
+      </div>
     </div>
     <div class="changeSize">
-      <span class="small active"></span>
-      <span class="normal active"></span>
-      <span class="large active"></span>
+      <div class="changePenSize active">
+        <span class="small active"></span>
+        <span class="normal"></span>
+        <span class="large"></span>
+      </div>
+      <div class="changeEraserSize">
+        <span class="small active"></span>
+        <span class="normal"></span>
+        <span class="large"></span>
+      </div>
     </div>
     <div class="changeBg">
       <svg class="icon" aria-hidden="true">

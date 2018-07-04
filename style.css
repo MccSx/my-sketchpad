@@ -33,12 +33,13 @@ body{overflow: hidden;}
   background-size: 100% 1.5em;}
 #sketchpad.lattice{background-image: linear-gradient(#EEEEEE .05em, transparent .1em),
   linear-gradient(90deg, #EEEEEE .05em, transparent .1em); background-size: 100% 1em, 1em 100%;}
-.choice{position: fixed; bottom: 0; height: 6%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
+.choice{position: fixed; bottom: 0; height: 7%; display: flex; flex-direction: row; cursor: pointer; z-index: 1;}
 
+.choice .pen-wrapper{width: 45%; display: flex; flex-direction: row; justify-content: space-between;}
 .choice .blackPen,
 .choice .bluePen,
 .choice .redPen,
-.choice .greenPen{width: 7%; height: 100%; position: relative; border-top-left-radius: 15%; border-top-right-radius: 15%;}
+.choice .greenPen{width: 18%; height: 100%; position: relative; border-top-left-radius: 15%; border-top-right-radius: 15%;}
 .choice .blackPen .up,
 .choice .bluePen .up,
 .choice .redPen .up,
@@ -52,11 +53,9 @@ body{overflow: hidden;}
 .choice .bluePen .up,.choice .bluePen .down{background: blue;}
 .choice .redPen .up,.choice .redPen .down{background: red;}
 .choice .greenPen .up,.choice .greenPen .down{background: green;}
-.choice .eraser{width: 7%; height: 100%; position: relative;}
+.choice .eraser{width: 18%; height: 100%; position: relative;}
 .choice .eraser .up{width: 100%; height: 34%; background: #44494D;}
 .choice .eraser .down{width: 100%; height: 62%; background: #44494D; position: absolute; bottom: 0;}
-.choice>div{margin-left: 1%;}
-.choice>div:first-child{margin-left: 0;}
 
 .choice .blackPen.active .up,
 .choice .bluePen.active .up,
@@ -96,13 +95,21 @@ body{overflow: hidden;}
   border-top-right-radius: 20%; position: relative;}
 .choice .eraser.active .up::after{content: ''; width: 100%; height: 100%; position: absolute; background: #fafafa; opacity: 0.5;}
 
-.choice .changeSize{width: 20%; display: flex; justify-content: space-between; align-items: center; margin: 0 5%;}
-.choice .changeSize>span{display: inline-block; border-radius: 50%; border: 1px solid #44494D; box-sizing: border-box;}
-.choice .changeSize .small{width: 1.6vh; height: 1.6vh; }
-.choice .changeSize .normal{width: 2vh; height: 2vh;}
-.choice .changeSize .large{width: 2.4vh; height: 2.4vh;}
-.choice .changeSize>span.active{background:#44494D; position: relative; display: flex; justify-content: center; align-items: center;}
-.choice .changeSize>span.active::after{content: ''; position: absolute; background: #fafafa; width: 35%; height: 35%; border-radius: 50%;}
+.choice .changeSize{width: 20%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; margin: 0 5%; 
+  position: relative;}
+.choice .changeSize .changePenSize,.choice .changeSize .changeEraserSize{width: 100%; height: 100%; display: none;}
+.choice .changeSize .changePenSize.active,
+.choice .changeSize .changeEraserSize.active{display: flex; flex-direction: row; justify-content: space-between; align-items: center; position: absolute;}
+.choice .changeSize .changePenSize>span{display: inline-block; border-radius: 50%; border: 1px solid #44494D; box-sizing: border-box;}
+.choice .changeSize .changeEraserSize>span{display: inline-block; border: 1px solid #44494D; box-sizing: border-box;}
+.choice .changeSize .changePenSize>.small{width: 1.6vh; height: 1.6vh; }
+.choice .changeSize .changePenSize>.normal{width: 2vh; height: 2vh;}
+.choice .changeSize .changePenSize>.large{width: 2.4vh; height: 2.4vh;}
+.choice .changeSize .changeEraserSize>.small{width: 1.6vh; height: 2vh; }
+.choice .changeSize .changeEraserSize>.normal{width: 2vh; height: 2.4vh;}
+.choice .changeSize .changeEraserSize>.large{width: 2.4vh; height: 2.8vh;}
+.choice .changeSize span.active{background:#44494D; position: relative; display: flex; justify-content: center; align-items: center;}
+.choice .changeSize span.active::after{content: ''; position: absolute; background: #fafafa; width: 35%; height: 35%; border-radius: 50%;}
 
 .choice .changeBg,.choice .download,.choice .removeAll{width: 10%; height: 100%; display: flex; justify-content: center;align-items: center;}
 .choice .changeBg .icon,.choice .download .icon,.choice .removeAll .icon{font-size: 22px;}
