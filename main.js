@@ -129,6 +129,18 @@ let largePen = document.querySelector('.changePenSize>.large')
 let smallEraser = document.querySelector('.changeEraserSize>.small')
 let normalEraser = document.querySelector('.changeEraserSize>.normal')
 let largeEraser = document.querySelector('.changeEraserSize>.large')
+let changeBg = document.querySelector('.changeBg')
+let bg = document.querySelector('.bg')
+let closeChangeBg = document.querySelector('.bg>button')
+let defaultBg = document.querySelector('.defaultBg')
+let yellowBg = document.querySelector('.yellowBg')
+let darkBg = document.querySelector('.darkBg')
+let paper1 = document.querySelector('.paper1')
+let paper2 = document.querySelector('.paper2')
+let lattice = document.querySelector('.lattice')
+let removeAll = document.querySelector('.removeAll')
+let downloadCanvas = document.querySelector('.downloadCanvas')
+
 blackPen.onclick = function (e) {
   changeClassName(blackPen, 'active')
   lineColor = 'black'
@@ -186,4 +198,52 @@ normalEraser.onclick = function (e) {
 largeEraser.onclick = function (e) {
   changeClassName(largeEraser, 'active')
   eraserSize = 18
+}
+changeBg.onclick = function () {
+  bg.classList.add('active')
+}
+closeChangeBg.onclick = function () {
+  bg.classList.remove('active')
+}
+defaultBg.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'defaultBg'
+  bg.classList.remove('active')
+}
+yellowBg.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'yellow'
+  bg.classList.remove('active')
+}
+darkBg.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'dark'
+  bg.classList.remove('active')
+}
+paper1.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'paper1'
+  bg.classList.remove('active')
+}
+paper2.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'paper2'
+  bg.classList.remove('active')
+}
+lattice.onclick = function () {
+  sketchpad.className = ''
+  sketchpad.className = 'lattice'
+  bg.classList.remove('active')
+}
+removeAll.onclick = function () {
+  ctx.clearRect(0, 0, sketchpad.width, sketchpad.height)
+}
+downloadCanvas.onclick = function () {
+  let url = sketchpad.toDataURL('image/png')
+  let aTarget = document.createElement('a')
+  document.body.appendChild(aTarget)
+  aTarget.href = url
+  aTarget.download = 'my sketchpad'
+  aTarget.target = '_blank'
+  aTarget.click()
 }

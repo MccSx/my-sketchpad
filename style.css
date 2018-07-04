@@ -23,6 +23,7 @@ body{overflow: hidden;}
   .bg{width: 30%; left: 35%;}
 }
 #sketchpad{background: #fafafa; position: fixed;}
+#sketchpad.defaultBg{background: #fafafa;}
 #sketchpad.yellow{background: #FFFFE7;}
 #sketchpad.dark{background: #F2F2EF;}
 #sketchpad.paper1{background-image: linear-gradient(#EEEEEE .05em, transparent .1em); background-size: 100% 1.5em;}
@@ -98,7 +99,7 @@ body{overflow: hidden;}
 .choice .changeSize{width: 20%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; margin: 0 5%; 
   position: relative;}
 .choice .changeSize .changePenSize,.choice .changeSize .changeEraserSize{width: 100%; height: 100%; display: flex; flex-direction: row; 
-  justify-content: space-between; align-items: center; position: absolute; opacity: 0;}
+  justify-content: space-between; align-items: center; position: absolute; opacity: 0; transition: all 0.3s;}
 .choice .changeSize .changePenSize.active,
 .choice .changeSize .changeEraserSize.active{opacity: 1; z-index: 1;}
 .choice .changeSize .changePenSize>span{display: inline-block; border-radius: 50%; border: 1px solid #44494D; box-sizing: border-box;}
@@ -112,11 +113,12 @@ body{overflow: hidden;}
 .choice .changeSize span.active{background:#44494D; position: relative; display: flex; justify-content: center; align-items: center;}
 .choice .changeSize span.active::after{content: ''; position: absolute; background: #fafafa; width: 35%; height: 35%; border-radius: 50%;}
 
-.choice .changeBg,.choice .download,.choice .removeAll{width: 10%; height: 100%; display: flex; justify-content: center;align-items: center;}
-.choice .changeBg .icon,.choice .download .icon,.choice .removeAll .icon{font-size: 22px;}
+.choice .changeBg,.choice .downloadCanvas,.choice .removeAll{width: 10%; height: 100%; display: flex; justify-content: center;align-items: center;}
+.choice .changeBg .icon,.choice .downloadCanvas .icon,.choice .removeAll .icon{font-size: 22px;}
 
-.bg{height: 30vh; background: #ccc; opacity: 0.5; position: absolute; bottom: 0; z-index: 100; transform: translateY(100%); display: none;}
-.bg.active{transform: translateY(0); display: block;}
+.bg{height: 30vh; background: #ccc; position: fixed; bottom: 0; z-index: 100; transform: translateY(100%); opacity: 0.5; 
+  transition: all 0.3s; opacity: 0;}
+.bg.active{transform: translateY(0); opacity: 0.5; transition: all 0.3s; }
 .bg .row1,.bg .row2{display: flex; margin-top: 5%; justify-content: space-between;}
 .bg .row1>div,.bg .row2>div{width: 8vh; height: 8vh; background: white; border-radius: 50%; margin: 0 8%; display: flex; justify-content: center; 
   align-items: center;}
@@ -129,3 +131,5 @@ body{overflow: hidden;}
 .bg .paper1 .content::after{background: url(./img/paper1.png); background-size: 100% 100%;}
 .bg .paper2 .content::after{background: url(./img/paper2.png); background-size: 100% 100%;}
 .bg .lattice .content::after{background: url(./img/lattice.png); background-size: 100% 100%;}
+.bg button{position: absolute; right: 2%; top: 5%; width: 1em; height: 1em; line-height: 1em; border: none; background: white; border-radius: 50%; 
+  color: #1AACFF;}
