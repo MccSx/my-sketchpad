@@ -121,27 +121,69 @@ let bluePen = document.querySelector('.bluePen')
 let redPen = document.querySelector('.redPen')
 let greenPen = document.querySelector('.greenPen')
 let eraser = document.querySelector('.eraser')
+let changePenSize = document.querySelector('.changePenSize')
+let changeEraserSize = document.querySelector('.changeEraserSize')
+let smallPen = document.querySelector('.changePenSize>.small')
+let normalPen = document.querySelector('.changePenSize>.normal')
+let largePen = document.querySelector('.changePenSize>.large')
+let smallEraser = document.querySelector('.changeEraserSize>.small')
+let normalEraser = document.querySelector('.changeEraserSize>.normal')
+let largeEraser = document.querySelector('.changeEraserSize>.large')
 blackPen.onclick = function (e) {
   changeClassName(blackPen, 'active')
   lineColor = 'black'
   isEraser = false
+  changePenSize.classList.add('active')
+  changeEraserSize.classList.remove('active')
 }
 bluePen.onclick = function (e) {
   changeClassName(bluePen, 'active')
   lineColor = 'blue'
   isEraser = false
+  changePenSize.classList.add('active')
+  changeEraserSize.classList.remove('active')
 }
 redPen.onclick = function (e) {
   changeClassName(redPen, 'active')
   lineColor = 'red'
   isEraser = false
+  changePenSize.classList.add('active')
+  changeEraserSize.classList.remove('active')
 }
 greenPen.onclick = function (e) {
   changeClassName(greenPen, 'active')
   lineColor = 'green'
   isEraser = false
+  changePenSize.classList.add('active')
+  changeEraserSize.classList.remove('active')
 }
 eraser.onclick = function (e) {
   changeClassName(eraser, 'active')
   isEraser = true
+  changePenSize.classList.remove('active')
+  changeEraserSize.classList.add('active')
+}
+smallPen.onclick = function (e) {
+  changeClassName(smallPen, 'active')
+  lineWidth = 2
+}
+normalPen.onclick = function (e) {
+  changeClassName(normalPen, 'active')
+  lineWidth = 4
+}
+largePen.onclick = function (e) {
+  changeClassName(largePen, 'active')
+  lineWidth = 6
+}
+smallEraser.onclick = function (e) {
+  changeClassName(smallEraser, 'active')
+  eraserSize = 6
+}
+normalEraser.onclick = function (e) {
+  changeClassName(normalEraser, 'active')
+  eraserSize = 12
+}
+largeEraser.onclick = function (e) {
+  changeClassName(largeEraser, 'active')
+  eraserSize = 18
 }
